@@ -18,12 +18,10 @@ public class EnemyStats : MonoBehaviour
     public GameObject bullet;
     public Transform bulletSpawn;
 
-    public AudioSource Barrier;
-    public AudioSource Bullet;
     public AudioSource fire;
     public AudioSource bottle;
-    public AudioSource drink;
-    public AudioSource vodka;
+    public AudioSource wine;
+    public AudioSource paper;
 
     void Start()
     {
@@ -35,13 +33,8 @@ public class EnemyStats : MonoBehaviour
     {
         GoBarrier();
         GoBullet();
-    }
-
-    private void FixedUpdate()
-    {
         timeBarrier += Time.deltaTime;
         timeBullet += Time.deltaTime;
-
     }
 
     void GoBarrier()
@@ -77,27 +70,25 @@ public class EnemyStats : MonoBehaviour
         if (col.CompareTag("BarrierPack"))
         {
             barr++;
-            Barrier.Play();
+            wine.Play();
         }
 
         if (col.CompareTag("BulletPack"))
         {
             bull++;
-            Bullet.Play();
+            paper.Play();
         }
 
         if (col.CompareTag("SpeedPack"))
         {
             SpeedBonus sb = GameObject.FindWithTag("SpeedPack").GetComponent<SpeedBonus>();
             sb.run = true;
-            drink.Play();
         }
 
         if (col.CompareTag("RevertThing"))
         {
             RevertMotions rm = GameObject.FindWithTag("RevertThing").GetComponent<RevertMotions>();
             rm.On = true;
-            vodka.Play();
         }
     }
 }

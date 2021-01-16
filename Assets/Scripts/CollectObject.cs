@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CollectObject : MonoBehaviour
 {
-    
+    [SerializeField] private AudioSource _audio;
     void Start()
     {
        
@@ -14,6 +14,7 @@ public class CollectObject : MonoBehaviour
     {
         if (col.CompareTag("Player"))
         {
+            _audio.Play();
             if (gameObject.CompareTag("SpeedPack") || gameObject.CompareTag("RevertThing"))
             {
                 Destroy(transform.GetChild(0).gameObject);
@@ -24,7 +25,7 @@ public class CollectObject : MonoBehaviour
                     Destroy(gameObject, 6f);
             }
             else
-                Destroy(gameObject);
+                Destroy(this.gameObject);
         }
     }
 }
