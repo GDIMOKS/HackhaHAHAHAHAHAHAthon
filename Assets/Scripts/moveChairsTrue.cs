@@ -25,7 +25,7 @@ public class moveChairsTrue : MonoBehaviour
         _rb.drag = 1;
         _rb.angularDrag = 5;
         SpeedMovement = 0f;
-        SpeedRotation = 12f;
+        SpeedRotation = 30f;
         SpeedMovementSlow = 5f;
         SpeedMovementMax = 200f;
         SpeedMovementUp = 30f;

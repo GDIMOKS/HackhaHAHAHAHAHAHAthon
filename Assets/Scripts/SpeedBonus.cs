@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class SpeedBonus : MonoBehaviour
 {
-    public float acceleretion = 30f;
     private float time = 0f;
     private float maxSpeed;
     private float upSpeed;
@@ -14,8 +13,6 @@ public class SpeedBonus : MonoBehaviour
     void Start()
     {
         mct = GameObject.FindWithTag("Player").GetComponent<moveChairsTrue>();
-        maxSpeed = mct.SpeedMovementMax;
-        upSpeed = mct.SpeedMovementUp;
     }
 
     private void FixedUpdate()
@@ -23,11 +20,10 @@ public class SpeedBonus : MonoBehaviour
         if (run == true)
         {
             time += Time.deltaTime;
-
             if (time < 2f)
             {
-                mct.SpeedMovementUp = 100f; 
-                mct.SpeedMovementMax = 800f;
+                mct.SpeedMovementUp = 45f; 
+                mct.SpeedMovementMax = 300f;
             }
             else
             {
@@ -37,6 +33,11 @@ public class SpeedBonus : MonoBehaviour
                 run = false;
                 time = 0f;
             }
+        }
+        else
+        {
+            maxSpeed = mct.SpeedMovementMax;
+            upSpeed = mct.SpeedMovementUp;
         }
     }
 }

@@ -21,6 +21,7 @@ public class StartToFinish : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameObject.Find("Start").GetComponent<MeshRenderer>().enabled = false;
+            GameObject.Find("Finish").GetComponent<MeshRenderer>().enabled = true;
         }
     }
 }
